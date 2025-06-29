@@ -5,7 +5,6 @@ interface LanguageContextType {
   language: Language
   setLanguage: (lang: Language) => void
   t: (key: keyof typeof translations.es) => string
-  tProject: (projectKey: string, field: 'title' | 'description') => string
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
@@ -42,19 +41,14 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   }
 
   const t = (key: keyof typeof translations.es): string => {
-    return translations[language][key]
-  }
-
-  const tProject = (projectKey: string, field: 'title' | 'description'): string => {
-    const project = translations[language].projects[projectKey]
-    return project ? project[field] : ''
+    const value = translations[language][key]
+    return typeof value === 'string' ? value : String(value)
   }
 
   const value: LanguageContextType = {
     language,
     setLanguage: handleSetLanguage,
-    t,
-    tProject
+    t
   }
 
   return (

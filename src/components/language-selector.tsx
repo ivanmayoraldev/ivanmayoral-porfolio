@@ -42,7 +42,7 @@ export default function LanguageSelector() {
         </label>
 
         <div 
-          className={`absolute top-0 bottom-0 w-1/2 rounded-2xl z-0 transition-all duration-500 ease-[cubic-bezier(0.37,1.95,0.66,0.56)] ${
+          className={`absolute top-0 bottom-0 w-1/2 rounded-2xl z-0 transition-all duration-500 ease-&lsqb;cubic-bezier(0.37,1.95,0.66,0.56)&rsqb; ${
             language === 'es' 
               ? 'translate-x-0 bg-gradient-to-br from-slate-400/30 to-slate-300 shadow-[0_0_18px_rgba(148,163,184,0.5),0_0_10px_rgba(255,255,255,0.4)_inset]' 
               : 'translate-x-full bg-gradient-to-br from-blue-400/30 to-blue-300 shadow-[0_0_18px_rgba(59,130,246,0.5),0_0_10px_rgba(191,219,254,0.4)_inset]'

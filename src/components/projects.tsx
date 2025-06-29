@@ -2,10 +2,11 @@ import { Github, MoveRight, ScreenShare, Code, Palette } from "lucide-react";
 import Card from "@/components/card";
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/lib/translations";
 
 export default function Projects() {
   const [activeTab, setActiveTab] = useState<'web' | 'design'>('web');
-  const { t, tProject } = useLanguage();
+  const { t, language } = useLanguage();
 
   const webProjects = [
     {
@@ -141,11 +142,12 @@ function ProjectItem({
   githubLink?: string;
   previewLink?: string;
 }) {
-  const { tProject } = useLanguage();
+  const { language } = useLanguage();
   
   // Use translated title and description if available
-  const displayTitle = projectKey ? tProject(projectKey, 'title') || title : title;
-  const displayDescription = projectKey ? tProject(projectKey, 'description') || description : description;
+  const projectTranslations = projectKey ? translations[language].projects[projectKey] : null;
+  const displayTitle = projectTranslations?.title || title;
+  const displayDescription = projectTranslations?.description || description;
 
   return (
     <div className="flex flex-col gap-3 sm:gap-4 rounded-xl p-3 sm:p-4 duration-100 hover:bg-neutral-300/20 dark:hover:bg-neutral-800/20 border border-transparent hover:border-neutral-300 dark:hover:border-neutral-600">
