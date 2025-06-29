@@ -6,7 +6,7 @@ import { translations } from "@/lib/translations";
 
 export default function Projects() {
   const [activeTab, setActiveTab] = useState<'web' | 'design'>('web');
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
 
   const webProjects = [
     {

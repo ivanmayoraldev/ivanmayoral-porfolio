@@ -1,4 +1,3 @@
-import { GraduationCap } from "lucide-react";
 import { Fade } from "react-awesome-reveal";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations } from "@/lib/translations";
